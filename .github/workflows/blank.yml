@@ -1,0 +1,23 @@
+name: CI/CD  # 워크플로우의 이름을 지정합니다.
+
+on:
+  push:  # 코드가 푸시될 때
+    branches: [ "main" ]  # "main" 브랜치로 제한합니다.
+  pull_request:  # 풀 리퀘스트가 올라왔을 때
+    branches: [ "main" ]  # "main" 브랜치로 제한합니다.
+  workflow_dispatch:  # 액션 탭에서 수동으로 실행할 수 있도록 합니다.
+
+jobs:
+  build:  # "build"라는 하나의 작업을 정의합니다.
+    runs-on: ubuntu-latest  # 우분투 최신 버전에서 실행됩니다.
+
+    steps:  # 작업을 실행하는 단계를 나열합니다.
+      - uses: actions/checkout@v4  # 리포지토리를 체크아웃합니다. $GITHUB_WORKSPACE에서 사용할 수 있도록 합니다.
+
+      - name: Run a one-line script  # 스텝의 이름을 지정합니다.
+        run: echo Hello, world!  # 간단한 쉘 스크립트를 실행하여 "Hello, world!"를 출력합니다.
+
+      - name: Run a multi-line script  # 또 다른 스텝의 이름을 지정합니다.
+        run: |  # 여러 줄의 쉘 스크립트를 실행합니다.
+          echo Add other actions to build,  # "Add other actions to build,"를 출력합니다.
+          echo test, and deploy your project.  # "test, and deploy your project."를 출력합니다.
