@@ -20,17 +20,8 @@ jobs:
         with:
           node-version: '10.19'  # Node.js 버전을 10.19로 지정합니다.
 
-      - name: test1
-        run: ls -la
-
-      - name: Change directory
-        run: cd generalsfarm
-
-      - name: test2
-        run: ls -la
-
       - name: Install dependencies  # 의존성 설치
-        run: npm ci  # package-lock.json에 명시된 의존성을 설치합니다.
+        run: cd generalsfarm && npm ci  # package-lock.json에 명시된 의존성을 설치합니다.
 
       - name: Build  # 빌드
         run: npm run build --if-present  # 빌드 스크립트를 실행합니다. (--if-present 플래그를 사용하여 해당 스크립트가 있는 경우에만 실행합니다.)
