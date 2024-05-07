@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: '10.19'  # Node.js 버전을 10.19로 지정합니다.
 
+      - name: Change directory
+        run: cd ../../generalsfarm/package.json
+
       - name: Install dependencies  # 의존성 설치
         run: npm ci  # package-lock.json에 명시된 의존성을 설치합니다.
 
@@ -31,6 +34,6 @@ jobs:
         with:
           server: ${{ secrets.SERVER_ADDRESS }}  # 운영 서버의 주소를 Secrets에서 가져옵니다.
           username: ${{ secrets.SERVER_USERNAME }}  # 서버의 사용자 이름을 Secrets에서 가져옵니다.
-          KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # 서버의 비밀번호를 ssh key 로 가져옵니다.
+          ssh_private_key: ${{ secrets.KEY }}  # 서버의 비밀번호를 ssh key 로 가져옵니다.
           local: './build'  # 빌드된 파일의 경로를 지정합니다.
           remote: '/var/www/html'  # 서버의 배포 디렉토리 경로를 지정합니다.
