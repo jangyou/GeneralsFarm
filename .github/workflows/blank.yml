@@ -18,7 +18,7 @@ jobs:
       - name: Use Node.js  # Node.js 사용 설정
         uses: actions/setup-node@v4  # Node.js를 설정합니다.
         with:
-          node-version: '10.19'  # Node.js 버전을 10.19로 지정합니다.
+          node-version: '16.20.2'  # Node.js 버전을 16.20.2 로 지정합니다.
 
       - name: Install dependencies  # 의존성 설치
         run: cd generalsfarm && npm ci  # package-lock.json에 명시된 의존성을 설치합니다.
