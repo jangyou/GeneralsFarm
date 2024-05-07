@@ -35,6 +35,6 @@ jobs:
           REMOTE_HOST: ${{ secrets.SERVER_ADDRESS }}  # 운영 서버의 주소를 Secrets에서 가져옵니다.
           REMOTE_USER: ${{ secrets.SERVER_USERNAME }}  # 서버의 사용자 이름을 Secrets에서 가져옵니다.
           SSH_PRIVATE_KEY: ${{ secrets.KEY }}  # 서버의 비밀번호를 ssh key 로 가져옵니다.
-          SOURCE: './build'  # 빌드된 파일의 경로를 지정합니다.
+          SOURCE: './generalsfarm/build'  # 빌드된 파일의 경로를 지정합니다.
           TARGET: '/var/www/html'  # 서버의 배포 디렉토리 경로를 지정합니다.
   
